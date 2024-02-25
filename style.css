@@ -1,0 +1,31 @@
+#navbar{
+    background-color: #5da593;
+    padding: 1rem;
+}
+
+#navbar-items{
+    list-style: none;
+    display: flex;
+    max-width: 80%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo{
+    font-size: 2rem;
+}
+
+#search-box{
+    margin: 0.2rem;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+#search-button{
+    padding: 0.2rem;
+    width: 5rem;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: aqua;
+}
