@@ -12,8 +12,17 @@
     align-items: center;
 }
 
-#logo{
+#navbar #logo #logo-description{
     font-size: 2rem;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+#navbar #logo #logo-symbol{
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.1rem;
 }
 
 #search-box{
