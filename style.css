@@ -54,6 +54,7 @@
 
 #news-cards .card {
     border: 2px solid black;
+    /* max-width: 300px; */
     padding: 1rem;
     border-radius: 10px;
     background-color: #b4e6d9;
@@ -71,5 +72,4 @@
 
 #news-cards .card img {
     width: 100%;
-    height: 50%;
 }
