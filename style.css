@@ -1,9 +1,9 @@
-#navbar{
+#navbar {
     background-color: #5da593;
     padding: 1rem;
 }
 
-#navbar-items{
+#navbar-items {
     list-style: none;
     display: flex;
     max-width: 80%;
@@ -12,29 +12,64 @@
     align-items: center;
 }
 
-#navbar #logo #logo-description{
+#navbar #logo #logo-description {
     font-size: 2rem;
     text-decoration: none;
     color: black;
     font-weight: 600;
 }
 
-#navbar #logo #logo-symbol{
+#navbar #logo #logo-symbol {
     width: 2rem;
     height: 2rem;
     margin-right: 0.1rem;
 }
 
-#search-box{
+#search-box {
     margin: 0.2rem;
     border-radius: 5px;
     padding: 0.5rem;
 }
 
-#search-button{
+#search-button {
     padding: 0.2rem;
     width: 5rem;
-    font-size: 16px;
+    font-size: 1rem;
     border-radius: 5px;
-    background-color: aqua;
+    background-color: black;
+    cursor: pointer;
+    color: white;
+}
+
+.container {
+    margin: auto;
+    padding: 2rem 4rem;
+}
+
+#news-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+#news-cards .card {
+    border: 2px solid black;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #b4e6d9;
+}
+
+#news-cards .card h3{
+    color: rgb(70, 68, 68);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#news-cards .card p{
+    font-size: 0.85rem;
+}
+
+#news-cards .card img {
+    width: 100%;
+    height: 50%;
 }
