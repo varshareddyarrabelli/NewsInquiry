@@ -1,11 +1,24 @@
 const apiKey = 'ece6d03b5f0c44eabae3ffd4afd170b6';
-
-document.addEventListener('DOMContentLoaded', getData);
-function getData() {
-    fetch('https://newsapi.org/v2/everything?q=everything&apiKey=ece6d03b5f0c44eabae3ffd4afd170b6&PageSize=10')
+document.addEventListener('DOMContentLoaded', getData("everything"));
+const searchButton = document.getElementById("search-button");
+searchButton.addEventListener("click", searchQuery);
+function searchQuery() {
+    var searchValue = document.getElementById("search-box").value;
+    if (searchValue) {
+        var query = searchValue;
+        console.log(query);
+        getData(query);
+    }
+    else {
+        console.log("Hi");
+    }
+}
+function getData(query) {
+    fetch(`https://newsapi.org/v2/everything?q=${query}&sortBy=date&apiKey=${apiKey}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            // const articlesWithImages = data.articles.filter(article => article.urlToImage);
+            // const newData = { ...data, articles: articlesWithImages };
             displayData(data);
         })
         .catch(error => {
@@ -13,8 +26,17 @@ function getData() {
         });
 }
 
+function truncateTitle(text, maxLength) {
+    if (text && text.length > maxLength) {
+        return text.slice(0, maxLength) + '...';
+    } else {
+        return text;
+    }
+}
+
 function displayData(data) {
     const appDiv = document.getElementById("news-cards");
+    appDiv.innerHTML = "";
     if (Array.isArray(data.articles)) {
         data.articles.forEach(post => {
             const postElement = document.createElement('div');
@@ -22,17 +44,27 @@ function displayData(data) {
             var img = document.createElement('img');
             var title = document.createElement('h3');
             var description = document.createElement('p');
-            img.src = post.urlToImage;
-            title.innerHTML = post.title;
-            description.innerHTML = post.description;
+            if (post.urlToImage) {
+                img.src = post.urlToImage;
+                title.innerHTML = truncateTitle(post.title, 50);
+                description.innerHTML = truncateTitle(post.description, 140);
+
+            }
+            else {
+                title.innerHTML = truncateTitle(post.title, 70);
+                description.innerHTML = truncateTitle(post.description, 250);
+            }
             postElement.appendChild(img);
             postElement.appendChild(title);
             postElement.appendChild(description);
+            postElement.addEventListener("click", function(){
+                console.log(post.url);
+                window.open(post.url,'_blank');
+            });
             appDiv.appendChild(postElement);
         });
     }
     else {
         console.log('Invalid data structure:', data);
     }
-
 }

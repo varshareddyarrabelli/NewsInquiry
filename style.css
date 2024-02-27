@@ -58,15 +58,21 @@
     padding: 1rem;
     border-radius: 10px;
     background-color: #b4e6d9;
+    cursor: pointer;
 }
 
-#news-cards .card h3{
+#news-cards .card:hover{
+    /* transform: translateY(-10px); */
+    transform: scale(0.9);
+}
+
+#news-cards .card h3 {
     color: rgb(70, 68, 68);
     font-size: 1rem;
     font-weight: 600;
 }
 
-#news-cards .card p{
+#news-cards .card p {
     font-size: 0.85rem;
 }
 
