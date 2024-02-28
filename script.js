@@ -6,19 +6,13 @@ function searchQuery() {
     var searchValue = document.getElementById("search-box").value;
     if (searchValue) {
         var query = searchValue;
-        console.log(query);
         getData(query);
-    }
-    else {
-        console.log("Hi");
     }
 }
 function getData(query) {
     fetch(`https://newsapi.org/v2/everything?q=${query}&sortBy=date&apiKey=${apiKey}`)
         .then(response => response.json())
         .then(data => {
-            // const articlesWithImages = data.articles.filter(article => article.urlToImage);
-            // const newData = { ...data, articles: articlesWithImages };
             displayData(data);
         })
         .catch(error => {
@@ -57,9 +51,9 @@ function displayData(data) {
             postElement.appendChild(img);
             postElement.appendChild(title);
             postElement.appendChild(description);
-            postElement.addEventListener("click", function(){
+            postElement.addEventListener("click", function () {
                 console.log(post.url);
-                window.open(post.url,'_blank');
+                window.open(post.url, '_blank');
             });
             appDiv.appendChild(postElement);
         });
