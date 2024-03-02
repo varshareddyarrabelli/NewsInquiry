@@ -10,15 +10,15 @@ function searchQuery() {
     }
 }
 
-function getData(query) {
-    fetch(`https://newsapi.org/v2/everything?q=everything&sortBy=date&apiKey=${apiKey}&PageSize=20`)
-        .then(response => response.json())
-        .then(data => {
-            displayData(data);
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
+async function getData(query) {
+
+    try {
+        const response = await fetch(`http://localhost:3000/news?search=${query}`);
+        const data = await response.json();
+        displayData(data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
 
 function truncateTitle(text, maxLength) {
