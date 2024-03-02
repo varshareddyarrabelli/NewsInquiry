@@ -4,7 +4,7 @@
   "description": "Welcome to NewsInquiry, your one-stop destination for staying informed and up-to-date with the latest news! NewsInquiry is a user-friendly platform designed to make your news search experience seamless and efficient.",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
