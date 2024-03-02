@@ -2,8 +2,8 @@ const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 
-const app = express();
 const port = 3000;
+const app = express();
 
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
@@ -15,6 +15,7 @@ app.get('/news', async (req, res) => {
     const apiUrl = `https://newsapi.org/v2/everything?q=${search}&sortBy=date&apiKey=${apiKey}&PageSize=10`;
     const response = await axios.get(apiUrl);
     const newsData = response.data;
+    console.log(newsData);
     return res.json(newsData);
   } catch (error) {
     console.error('Error fetching news:', error.message);
@@ -26,6 +27,6 @@ app.get('/', async (req, res) => {
     res.sendFile(__dirname + "/index.html");
   });
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
