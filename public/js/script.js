@@ -13,9 +13,8 @@ function searchQuery() {
 async function getData(query) {
 
     try {
-        const response = await fetch(`http://localhost:3000/news?search=${query}`);
+        const response = await fetch(`https://newsinquiry.onrender.com/news?search=${query}`);
         const data = await response.json();
-        console.log(data);
         displayData(data);
     } catch (error) {
         console.error('Error:', error);

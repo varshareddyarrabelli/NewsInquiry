@@ -12,10 +12,9 @@ app.get('/news', async (req, res) => {
   try {
     const apiKey = 'ece6d03b5f0c44eabae3ffd4afd170b6';
     const search = req.query.search || 'everything';
-    const apiUrl = `https://newsapi.org/v2/everything?q=${search}&sortBy=date&apiKey=${apiKey}&PageSize=10`;
+    const apiUrl = `https://newsapi.org/v2/everything?q=${search}&sortBy=date&apiKey=${apiKey}`;
     const response = await axios.get(apiUrl);
     const newsData = response.data;
-    console.log(newsData);
     return res.json(newsData);
   } catch (error) {
     console.error('Error fetching news:', error.message);
