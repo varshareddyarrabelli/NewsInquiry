@@ -9,8 +9,9 @@ function searchQuery() {
         getData(query);
     }
 }
+
 function getData(query) {
-    fetch(`https://newsapi.org/v2/everything?q=${query}&sortBy=date&apiKey=${apiKey}&PageSize=20`)
+    fetch(`https://newsapi.org/v2/everything?q=everything&sortBy=date&apiKey=${apiKey}&PageSize=20`)
         .then(response => response.json())
         .then(data => {
             displayData(data);
